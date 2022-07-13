@@ -19,8 +19,8 @@ app.use(sesion({
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new PassportLocal(function(username, password, done){
-    if(username === "adan" && password === "12345678")
-    return done(null, { id: 1, name: "camacho"});
+    if(username === "adan" && password === "12345678") //este es el nombre de usuario y la contraseña para iniciar
+    return done(null, { id: 1, name: "camacho"}); 
 
     done(null, false);
 }));
@@ -61,6 +61,7 @@ app.post("/login", passport.authenticate('local',{
     successRedirect: "/",
     failureRedirect: "/login"
 }));
+
 
 
 //TODO: AUthentificacion de usuario por JWT en sprint 2 
